@@ -19,10 +19,10 @@ public class DayDateUpload implements Job {
         Logger logger = LoggerFactory.getLogger(getClass());
         Date date = new Date();
         logger.info("上传文件：" + new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(date));
-        String now = new SimpleDateFormat("yyyyMMdd").format(date);
-        now = FileConfig.getDirectory() + now + FileConfig.getSuffix();
+//        String now = new SimpleDateFormat("yyyyMMdd").format(date);
+//        now = FileConfig.getDirectory() + now + FileConfig.getSuffix();
         try {
-            FtpUtils.sshSftp(now);
+            FtpUtils.batch(FileConfig.getDirectory());
         } catch (Exception e) {
             logger.error(e.getMessage());
             throw new RuntimeException(e);

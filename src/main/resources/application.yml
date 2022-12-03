@@ -2,8 +2,8 @@ server:
   port: 7799
 
 file:
-  directory: D:/tmp/latest/全部Ａ股
-  corn: 0 0 16 1/1 * ?
+  directory: D:/tmp/latest/
+  corn: 0 17 11 1/1 * ?
   suffix: .txt
   queue: everyday_file
   ip: 124.221.21.212
@@ -11,15 +11,6 @@ file:
   password: qwerpoiu147369@!
   port: 22
   filePath: /home/gy/data/latest/
-
-spring:
-  # RabbitMQ 配置
-  rabbitmq:
-    port: 5672
-    host: 124.221.21.212
-    username: ysywy
-    password: ysywy
-    virtual-host: signal
 
 
 
