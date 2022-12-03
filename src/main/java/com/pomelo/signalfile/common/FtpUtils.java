@@ -65,7 +65,7 @@ public class FtpUtils {
     public static void sshSftp(String fileName) throws FileNotFoundException {
         File file = new File(fileName);
         FileInputStream fileInputStream = new FileInputStream(file);
-        String name = StringUtils.substringAfter(file.getName(), "全部Ａ股");
+        String name = !file.getName().contains("全部Ａ股") ? file.getName() : StringUtils.substringAfter(file.getName(), "全部Ａ股");
         try {
             sftp.put(fileInputStream, name);
         } catch (SftpException e) {
@@ -92,7 +92,7 @@ public class FtpUtils {
         assert files != null;
         for (File f : files) {
             FileInputStream fileInputStream = new FileInputStream(f);
-            String name = StringUtils.substringAfter(f.getName(), "全部Ａ股");
+            String name = !f.getName().contains("全部Ａ股") ? f.getName() : StringUtils.substringAfter(f.getName(), "全部Ａ股");
             try {
                 sftp.put(fileInputStream, name);
             } catch (SftpException e) {
